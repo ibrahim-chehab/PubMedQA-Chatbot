@@ -1,0 +1,249 @@
+$chat-height: 500px;
+$chat-width: 400px;
+$layout-height: 50px;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', sans-serif;
+	background: #34EAE8;
+	background: linear-gradient(225deg, #34EAE8, #733AEC);
+}
+
+.full-viewport {
+	width: 100vw;
+	min-height: 100vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.glassmorphism {
+	background: rgba(240, 240, 240, 0.15);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	-webkit-backdrop-filter: blur(7.4px);
+	backdrop-filter: blur(7.4px);
+}
+
+.chat-window {
+	width: 80vw;
+	height: 80vh;
+	border: none;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	// @media (min-width: calc(#{$chat-width} + 2rem)) {
+	// 	width: $chat-width;
+	// }
+
+	// @media (min-height: calc(#{$chat-height} + 2rem)) {
+	// 	height: $chat-height;
+	// }
+	
+	// @media (max-height: calc(300px + 2rem)) {
+	// 	height: 300px;
+	// }
+}
+
+.chat-title {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	
+	min-height: $layout-height;
+	max-height: $layout-height;
+	border: none;
+	
+	color: white;
+	background: rgba(0, 0, 0, 0.12);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	-webkit-backdrop-filter: blur(7.4px);
+  backdrop-filter: blur(7.4px);
+}
+
+.chat-title-avatar {
+	margin: 5px 10px;
+	border-radius: 50%;
+	width: calc(#{$layout-height} - 10px);
+	height: calc(#{$layout-height} - 10px);
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: inherit;
+	}
+}
+
+.chat-title-status {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.chat-title-status-text {
+	font-size: 1rem;
+	color: rgba(white, 0.5);
+}
+
+.sent-time {
+	float: right;
+	color: gray;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
+.chat-title-status-circle {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #1dd31d;
+	margin-right: 5px;
+}
+
+.chat-messages {
+	flex-grow: 1;
+	overflow-y: auto;
+	margin: 0px;
+	padding: 20px;
+	overflow-wrap: break-word;
+	background: rgba(0, 0, 0, 0.05);
+
+	&::-webkit-scrollbar {
+		width: 0.2rem;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, 0.5);
+		border-radius: 25px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+
+	// Mozilla scrollbar
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+
+	scrollbar-thumb-color: rgba(255, 255, 255, 0.5);
+	scrollbar-thumb-radius: 25px;
+	scrollbar-track-color: transparent;
+}
+  
+
+.bubble {
+	color: #333;
+	background-color: rgba(420, 420, 420, .3);
+	border-radius: 20px 20px 20px 0;
+	margin: .15rem 0;
+	max-width: 80%;
+	word-wrap: break-word;
+}
+
+.bubble-personal {
+	color: white;
+	background-color: #007AFF;
+	border-radius: 20px 20px 0 20px;
+	animation: fadeIn 0.15s ease forwards;
+
+	.sent-time {
+		color: white;
+	}
+}
+
+.bubble-text {
+	display: flex;
+	align-items: flex-end;
+	padding: 0.55rem;
+	font-size: 1rem;
+	border-radius: inherit;
+	background-color: inherit;
+}
+
+.message {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.message-personal {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.chat-input {
+	display: flex;
+	align-items: center;
+	
+	min-height: $layout-height;
+	max-height: $layout-height;
+	border: none;
+
+	color: white;
+	background: rgba(0, 0, 0, 0.12);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	-webkit-backdrop-filter: blur(7.4px);
+	backdrop-filter: blur(7.4px);
+}
+
+#message-input {
+	flex-grow: 1;
+	padding: 0px;
+	margin-left: 20px;
+	margin-right: 5px;
+
+	height: 50px;
+
+	border: none;
+	color: inherit;
+	overflow-wrap: break-word;
+	background-color: transparent;
+
+	resize: none;
+	outline: none;
+
+	&:focus,
+	&:active {
+		border: none;
+		outline: none;
+	}
+	&::placeholder {
+		color: rgba(white, 0.8);
+	}
+}
+
+#send-button {
+	padding: 5px 15px;
+	background-color: transparent;
+	border: none;
+	color: white;
+
+	i {
+		cursor: pointer;
+		transition: color 0.3s ease;
+		&:hover { 
+			color: rgba(white, 0.4);
+		}
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+		transform-origin: 0 0;
+		animation: bounce 500ms linear both;
+	}
+}

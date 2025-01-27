@@ -1,0 +1,6 @@
+- Clear Button
+- Re-add the answer to chunk then embeddings then store to pinecone
+- Add the days of the chat messages in the chat room
+- Scroll to the button always
+- add the previous chat message (latest one or more than one message), since it may be linked to the current message
+- progress on sending the message and waiting to response
